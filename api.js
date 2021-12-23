@@ -17,7 +17,7 @@ app.get('/api/users/:apikey/:id', async (req, res) => {
     id
   } = req.params;
 
-  if (uuidAPIkey.check(apikey, key.uuid)) {
+  if (!uuidAPIkey.isAPIKey(apikey) && !uuidAPIkey.check(apikey, key.uuid)) {
     res.send("Api Key is not valid.")
   } else {
     if (id === '1') {
@@ -47,7 +47,7 @@ app.get('/api/users/info/:apikey/:id', async (req, res) => {
     id
   } = req.params;
 
-  if (uuidAPIkey.check(apikey, key.uuid)) {
+  if (!uuidAPIkey.isAPIKey(apikey) && !uuidAPIkey.check(apikey, key.uuid)) {
     res.send("Api Key is not valid.")
   } else {
     if (id === '1') {
