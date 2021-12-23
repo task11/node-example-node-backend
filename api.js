@@ -18,6 +18,8 @@ app.get('/api/users/:apikey/:id', async (req, res) => {
   } = req.params;
 
   if (uuidAPIkey.check(apikey, key.uuid)) {
+    res.send("Api Key is not valid.")
+  } else {
     if (id === '1') {
       let data = [{
         "uid": 123,
@@ -36,10 +38,6 @@ app.get('/api/users/:apikey/:id', async (req, res) => {
       res.send(data);
     }
   }
-
-
-
-
 })
 
 
@@ -50,6 +48,8 @@ app.get('/api/users/info/:apikey/:id', async (req, res) => {
   } = req.params;
 
   if (uuidAPIkey.check(apikey, key.uuid)) {
+    res.send("Api Key is not valid.")
+  } else {
     if (id === '1') {
       let data = [{
         "id": 123,
@@ -80,10 +80,6 @@ app.get('/api/users/info/:apikey/:id', async (req, res) => {
         }]
       }]
       res.send(data);
-
     }
-
-
   }
-
 })
